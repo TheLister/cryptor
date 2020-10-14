@@ -5,7 +5,7 @@ from cryptography.hazmat.primitives import hashes
 from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
 from cryptography.fernet import Fernet
 
-password_provided = "password" 
+password_provided = input("password" 
 print(password_provided)
 password = password_provided.encode() #convert to type bytes
 salt = b'p\xcckM\x15\xeb\xa6\xf9K\xe2l\xe7\xc49\xfe\xee'
@@ -20,7 +20,6 @@ kdf = PBKDF2HMAC(
 )
 
 key = base64.urlsafe_b64encode(kdf.derive(password))
-print("key")
 print(key)
 
 
