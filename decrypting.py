@@ -8,8 +8,8 @@ from cryptography.fernet import Fernet
 
 
 # Gather Inputs
-encrypted_message_provided = input("Paste your encrypted message: ")
-key_provided = input("Paste your key: ")
+# encrypted_message_provided = input("Paste your encrypted message: ")
+# key_provided = input("Paste your key: ")
 
 
 
@@ -33,8 +33,18 @@ key_provided = input("Paste your key: ")
 # print(message)
 # encoded_message = message.encode()
 
-fernet_token = Fernet(b'tM-cQqEaCssb3CObjR5cyTnmuqB07obBpYP8okiVu3I=')
-decrypted_message = fernet_token.decrypt(b'gAAAAABfh8NEeOYClBM5PxndMCCHIXo7EvRUn3g3xMv545Y0Y6QvfXEBD6fJfGqDYV05nJk9UFc-_2tdeIwTjnoT9erW4fm5Jw==')
+password_provided = input("Paste your key: ")
+password = password_provided.encode() #convert to type byte
+
+encrypted_message_provided = input("Paste your encrypted message ")
+encrypted_message = encrypted_message_provided.encode()
+
+
+
+fernet_token = Fernet(password)
+decrypted_message = fernet_token.decrypt(encrypted_message)
+decrypted_message_str = decrypted_message.decode("utf-8")
+
 
 print("decrypted message:")
-print(decrypted_message)
+print(decrypted_message_str)

@@ -25,9 +25,9 @@ kdf = PBKDF2HMAC(
 key = base64.urlsafe_b64encode(kdf.derive(password))
 
 
-file = open('key.key', 'wb')
-file.write(key) #key is typebytes
-file.close()
+# file = open('key.key', 'wb')
+# file.write(key) #key is typebytes
+# file.close()
 
 
 encoded_message = message.encode()
